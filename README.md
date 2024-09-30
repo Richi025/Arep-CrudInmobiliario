@@ -226,6 +226,13 @@ To run the program on AWS, we need to have two instances, in my case, they are t
     java -jar PropertyApplication-0.0.1-SNAPSHOT.jar
     ```
 
+    And in the following url you can view the project:
+
+    ```bash
+    http://98.81.134.203:8080/
+    ```
+    The url changes every time the instances AWS EC2 is run.
+
     ![alt text](images/AWS+.gif)
 
 
