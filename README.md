@@ -61,7 +61,7 @@ You need to install the following tools and configure their dependencies:
 1. Clone the repository and navigate into the project directory:
     
     ```bash
-    git clone https://github.com/YOUR-USERNAME/PropertyManagement.git
+    git clone https://github.com/Richi025/Arep-CrudInmobiliario.git 
     cd PropertyManagement
     ```
 
@@ -105,6 +105,12 @@ You need to install the following tools and configure their dependencies:
 
 ## Test Resutls
 
+To run the tests use:
+
+  ```bash
+  mvn test
+  ```
+
 ![alt text](images/imageTest.png)
 
 ### Explanation:
@@ -123,11 +129,111 @@ You need to install the following tools and configure their dependencies:
 
 ## Deployment in AWS
 
+To run the program on AWS, we need to have two instances, in my case, they are the following.
+
+![images/imageInstances.png](images/imageInstances.png)
+
+1. Now we enter the ServerSQL instances and install Install package repository.
+
+    ![alt text](images/imagePacka.png)
+
+2. Manually import the MySQL GPG key:
+
+    ```bash
+    sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+    ```
+
+3. Install MySQL:
+
+    ```bash
+    sudo yum install mysql-community-server -y
+    ```
+
+    ![alt text](images/imageInstall.png)
+
+4. Find the root password in:
+
+    ```bash
+    sudo cat /var/log/mysqld.log | grep 'temporary password'
+    ```
+
+5. Log in with the found password and change the password with the command:
+
+    ```bash
+    sudo mysql -u root
+    ```
+
+    ```bash
+    ALTER USER 'root'@'localhost' IDENTIFIED BY 'NuevaContraseñaSegura';
+    ```
+    ![alt text](images/imageChange.png)
+
+6. Create user and give privileges.
+
+    ```bash
+    CREATE USER 'usuario'@'%' IDENTIFIED BY 'tu_contraseña';
+    ```
+
+    ```bash
+    GRANT ALL PRIVILEGES ON *.* TO 'usuario'@'%' WITH GRANT OPTION;
+    ```
+
+    ```bash
+    FLUSH PRIVILEGES;
+    ```
+
+    ![alt text](images/image-3.png)
+
+7. Create the data base;
+
+    ```bash
+    CREATE DATABASE mydatabase;
+    ```
+
+    ![alt text](images/image-4.png)
+
+
+7. Enter the following path and change the file by adding
+
+    ```bash
+    sudo nano /usr/bin/etc/my.cnf
+    ```
+
+    ```bash
+    bin-address = 0.0.0.0
+    ```
+    ![alt text](images/imageAddress.png) 
+
+8. Make the following changes to the code.
+
+    ![alt text](images/image.png)
+
+    ![alt text](images/image-1.png)
+
+9. The project's .jar file is uploaded to the ServerWebDocker virtual machine.
+
+    ![alt text](images/image-2.png)
+
+10. Java is installed
+
+    ```bash
+    sudo yum install java-17-amazon-corretto -y
+    ```
+
+11. Execute the proyect with the command:
+
+    ```bash
+    java -jar PropertyApplication-0.0.1-SNAPSHOT.jar
+    ```
+
+    ![alt text](images/AWS+.gif)
 
 
 ## Diagram Class
 
 ![images/imageClass.png](images/imageClass.png)
+
+
 
 ## Class Diagram Explanation
 
