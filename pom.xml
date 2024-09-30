@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>escuelaing.edu.co</groupId>
-	<artifactId>JPA</artifactId>
+	<artifactId>PropertyApplication</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>JPA</name>
+	<name>PropertyApplication</name>
 	<description>Accessing Data with JPA</description>
 	<url/>
 	<licenses>

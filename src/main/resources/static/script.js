@@ -19,8 +19,8 @@ document.getElementById('propertyForm').addEventListener('submit', function(even
     .then(response => response.json())
     .then(data => {
         console.log('Propiedad creada:', data);
-        loadProperties(); // Recargar la lista de propiedades
-        document.getElementById('propertyForm').reset(); // Limpiar el formulario
+        loadProperties(); 
+        document.getElementById('propertyForm').reset(); 
     })
     .catch(error => console.error('Error:', error));
 });
@@ -30,7 +30,7 @@ function loadProperties() {
         .then(response => response.json())
         .then(data => {
             const propertyList = document.getElementById('propertyList');
-            propertyList.innerHTML = ''; // Limpiar la lista actual
+            propertyList.innerHTML = ''; 
             data.forEach(property => {
                 const li = document.createElement('li');
                 li.textContent = `${property.address} - $${property.price} - ${property.size}m² - ${property.description}`;
@@ -79,7 +79,7 @@ function updateProperty(id) {
     .then(response => response.json())
     .then(data => {
         console.log('Propiedad actualizada:', data);
-        loadProperties(); // Recargar la lista de propiedades
+        loadProperties(); 
     })
     .catch(error => console.error('Error:', error));
 }

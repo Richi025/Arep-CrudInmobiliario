@@ -4,6 +4,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+/**
+ * The unique identifier for each Property instance.
+ * It is auto-generated using the IDENTITY strategy.
+ */
 @Entity
 public class Property {
     @Id
@@ -14,13 +18,20 @@ public class Property {
     private double size;
     private String description;
 
-    // Getters and Setters
+    
 
-    // Default constructor
+  
     public Property() {
     }
 
-    // Constructor with parameters
+    /**
+     * Constructor with parameters to create a Property instance.
+     * 
+     * @param address     the address of the property
+     * @param description the description of the property
+     * @param price       the price of the property
+     * @param size        the size of the property
+     */
     public Property(String address, String description, Double price, Double size) {
         this.address = address;
         this.description = description;
